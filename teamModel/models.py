@@ -16,4 +16,7 @@ class TeamMember():
 
 class Team():
     def __init__(self):
-      self.roster = []
+        self.roster = []
+
+    def add_member(self, team_member):
+        self.roster.append(team_member)
