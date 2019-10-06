@@ -9,7 +9,4 @@ class TeamMember():
     self.onLeave = False
 
   def toggleOnLeave(self):
-    if self.onLeave == True:
-      self.onLeave = False
-    else:
-      self.onLeave = True
+    self.onLeave = (True, False)[self.onLeave]
