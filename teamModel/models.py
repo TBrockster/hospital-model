@@ -34,8 +34,19 @@ class Team():
         self.roster = []
 
     def add_member(self, team_member):
-        team_member.teams.append(self)
-        self.roster.append(team_member)
+        team_member_check = self.check_team_member_teams_count(team_member)
+        if team_member_check == False:
+            raise Exception('Failed to add Team Member, already in maximum number of Teams')
+        else:
+            team_member.teams.append(self)
+            self.roster.append(team_member)
+
+    def check_team_member_teams_count(self, team_member):
+        if team_member.type == 'Nurse' or team_member.type == 'Admin Assistant':
+            result = (False, True)[len(team_member.teams) <= 2]
+            return result
+        else:
+            return True
 
     def validity_check(self):
         type_count = self.roster_type_count()
