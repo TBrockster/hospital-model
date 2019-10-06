@@ -15,3 +15,7 @@ def test_TeamMemberHasOnLeave():
 def test_TeamMemberCanToggleOnLeave():
   genericTeamMember.toggleOnLeave()
   assert genericTeamMember.onLeave == True
+
+def test_TeamMemberCanToggleOnLeaveBack():
+  genericTeamMember.toggleOnLeave()
+  assert genericTeamMember.onLeave == False
