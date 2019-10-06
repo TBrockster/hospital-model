@@ -1,19 +1,19 @@
 from teamModel.models import Team
 from teamModel.models import TeamMember
 
-john = TeamMember(first_name = 'John', 
+surgeon = TeamMember(first_name = 'John', 
                   last_name = 'Doe',
                   type = 'Surgeon',
                   specialities = ['Renal', 'Paediatrics'],
                   biography = 'Lorem Ipsum')
 
-jane = TeamMember(first_name = 'Jane', 
+nurse = TeamMember(first_name = 'Jane', 
                   last_name = 'Doe',
                   type = 'Nurse',
                   specialities = ['Renal', 'Paediatrics'],
                   biography = 'Lorem Ipsum')
 
-jack = TeamMember(first_name = 'Jack', 
+admin_assistant = TeamMember(first_name = 'Jack', 
                   last_name = 'Doe',
                   type = 'Admin Assistant',
                   specialities = ['Renal', 'Paediatrics'],
@@ -25,37 +25,37 @@ def test_TeamHasRoster():
 
 def test_TeamCanAddMembers():
   team = Team()
-  team.add_member(john)
-  assert team.roster == [john]
+  team.add_member(surgeon)
+  assert team.roster == [surgeon]
 
 def test_TeamHasValidityCheck():
   team = Team()
-  team.add_member(john)
+  team.add_member(surgeon)
   assert team.validity_check() == False
 
 def test_OneSurgeonOneNurse():
   team = Team()
-  team.add_member(john)
-  team.add_member(jane)
+  team.add_member(surgeon)
+  team.add_member(nurse)
   assert team.validity_check() == True
 
 def test_MaxOneSurgeon():
   team = Team()
-  team.add_member(john)
-  team.add_member(john)
+  team.add_member(surgeon)
+  team.add_member(surgeon)
   assert team.validity_check() == False
 
 def test_OneAdminAssistant():
   team = Team()
-  team.add_member(john)
-  team.add_member(jane)
-  team.add_member(jack)
+  team.add_member(surgeon)
+  team.add_member(nurse)
+  team.add_member(admin_assistant)
   assert team.validity_check() == True
 
 def test_MaxOneAdminAssistant():
   team = Team()
-  team.add_member(john)
-  team.add_member(jane)
-  team.add_member(jack)
-  team.add_member(jack)
+  team.add_member(surgeon)
+  team.add_member(nurse)
+  team.add_member(admin_assistant)
+  team.add_member(admin_assistant)
   assert team.validity_check() == False
