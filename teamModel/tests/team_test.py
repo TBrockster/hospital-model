@@ -69,6 +69,6 @@ def test_AddMemberAddsTeamToMembersTeamList():
   rookie_nurse = Nurse(first_name = 'Jane', 
                        last_name = 'Doe',
                        specialities = ['Renal', 'Paediatrics'],
-                      biography = 'Lorem Ipsum')
+                       biography = 'Lorem Ipsum')
   team.add_member(rookie_nurse)
   assert len(rookie_nurse.teams) == 1
