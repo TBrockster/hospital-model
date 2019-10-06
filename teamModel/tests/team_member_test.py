@@ -27,3 +27,6 @@ def test_TeamMemberHasSpecialities():
 
 def test_TeamMemberHasBiography():
   assert genericTeamMember.biography == 'Lorem Ipsum'
+
+def test_TeamMemberHasTeamsList():
+  assert genericTeamMember.teams == []

@@ -9,6 +9,7 @@ class TeamMember():
         self.specialities = specialities
         self.biography = biography
         self.on_leave = False
+        self.teams = []
 
     def toggle_on_leave(self):
         self.on_leave = (True, False)[self.on_leave]
