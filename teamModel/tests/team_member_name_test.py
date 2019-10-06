@@ -8,3 +8,6 @@ def test_TeamMemberHasFirstName():
 
 def test_TeamMemberHasLastName():
   assert genericTeamMember.lastName == 'Doe'
+
+def test_TeamMemberHasOnLeave():
+  assert genericTeamMember.onLeave == False
