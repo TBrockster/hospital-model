@@ -1,10 +1,10 @@
 from teamModel.models import TeamMember
 
-genericTeamMember = TeamMember(first_name='John', 
-                               last_name='Doe',
-                               type='Surgeon',
+genericTeamMember = TeamMember(first_name = 'John', 
+                               last_name = 'Doe',
+                               type = 'Surgeon',
                                specialities = ['Renal', 'Paediatrics'],
-                               biography='Lorem Ipsum')
+                               biography = 'Lorem Ipsum')
 
 def test_TeamMemberHasFirstName():
   assert genericTeamMember.first_name == 'John'
