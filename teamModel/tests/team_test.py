@@ -51,3 +51,11 @@ def test_OneAdminAssistant():
   team.add_member(jane)
   team.add_member(jack)
   assert team.validity_check() == True
+
+def test_MaxOneAdminAssistant():
+  team = Team()
+  team.add_member(john)
+  team.add_member(jane)
+  team.add_member(jack)
+  team.add_member(jack)
+  assert team.validity_check() == False
