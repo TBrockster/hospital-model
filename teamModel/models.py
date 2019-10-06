@@ -22,4 +22,18 @@ class Team():
         self.roster.append(team_member)
 
     def validity_check(self):
-        return False
+        type_count = self.roster_type_count()
+        if type_count['Surgeon'] == 1 and type_count['Nurse'] == 1:
+            return True
+        else:
+            return False
+
+    def roster_type_count(self):
+        team_count = {
+          'Surgeon' : 0,
+          'Nurse' : 0,
+          'Admin Assistant' : 0
+        }
+        for team_member in self.roster:
+            team_count[team_member.type] += 1
+        return team_count
