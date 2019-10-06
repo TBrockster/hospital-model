@@ -16,18 +16,21 @@ class TeamMember():
 
 class Surgeon(TeamMember):
     def __init__(self, first_name, last_name, specialities, biography):
-      TeamMember.__init__(self, first_name, last_name, specialities, biography)
-      self.type = 'Surgeon'
+        TeamMember.__init__(self, first_name, last_name, specialities, biography)
+        self.type = 'Surgeon'
+        self.MAX_TEAMS = 1
 
 class Nurse(TeamMember):
     def __init__(self, first_name, last_name, specialities, biography):
-          TeamMember.__init__(self, first_name, last_name, specialities, biography)
-          self.type = 'Nurse'
+        TeamMember.__init__(self, first_name, last_name, specialities, biography)
+        self.type = 'Nurse'
+        self.MAX_TEAMS = 3
 
 class AdminAssistant(TeamMember):
     def __init__(self, first_name, last_name, specialities, biography):
-          TeamMember.__init__(self, first_name, last_name, specialities, biography)
-          self.type = 'Admin Assistant'
+        TeamMember.__init__(self, first_name, last_name, specialities, biography)
+        self.type = 'Admin Assistant'
+        self.MAX_TEAMS = 3
 
 class Team():
     def __init__(self):
@@ -42,14 +45,7 @@ class Team():
             self.roster.append(team_member)
 
     def check_team_member_teams_count(self, team_member):
-        if team_member.type == 'Nurse' or team_member.type == 'Admin Assistant':
-            result = (False, True)[len(team_member.teams) <= 2]
-            return result
-        elif team_member.type == 'Surgeon':
-            result = (False, True)[len(team_member.teams) <= 0]
-            return result
-        else:
-            return False
+        return (False, True)[len(team_member.teams) < team_member.MAX_TEAMS]
 
     def validity_check(self):
         type_count = self.roster_type_count()
