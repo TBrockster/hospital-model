@@ -3,19 +3,16 @@ from teamModel.models import TeamMember
 
 surgeon = TeamMember(first_name = 'John', 
                      last_name = 'Doe',
-                     type = 'Surgeon',
                      specialities = ['Renal', 'Paediatrics'],
                      biography = 'Lorem Ipsum')
 
 nurse = TeamMember(first_name = 'Jane', 
                    last_name = 'Doe',
-                   type = 'Nurse',
                    specialities = ['Renal', 'Paediatrics'],
                    biography = 'Lorem Ipsum')
 
 admin_assistant = TeamMember(first_name = 'Jack', 
                              last_name = 'Doe',
-                             type = 'Admin Assistant',
                              specialities = ['Renal', 'Paediatrics'],
                              biography = 'Lorem Ipsum')
 

@@ -2,7 +2,6 @@ from teamModel.models import TeamMember
 
 genericTeamMember = TeamMember(first_name = 'John', 
                                last_name = 'Doe',
-                               type = 'Surgeon',
                                specialities = ['Renal', 'Paediatrics'],
                                biography = 'Lorem Ipsum')
 
@@ -11,9 +10,6 @@ def test_TeamMemberHasFirstName():
 
 def test_TeamMemberHasLastName():
   assert genericTeamMember.last_name == 'Doe'
-
-def test_TeamMemberHasType():
-  assert genericTeamMember.type == 'Surgeon'
 
 def test_TeamMemberHasOnLeave():
   assert genericTeamMember.on_leave == False
