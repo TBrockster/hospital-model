@@ -20,3 +20,6 @@ class Team():
 
     def add_member(self, team_member):
         self.roster.append(team_member)
+
+    def validity_check(self):
+        return False
