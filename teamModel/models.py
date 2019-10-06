@@ -18,19 +18,19 @@ class Surgeon(TeamMember):
     def __init__(self, first_name, last_name, specialities, biography):
         TeamMember.__init__(self, first_name, last_name, specialities, biography)
         self.type = 'Surgeon'
-        self.MAX_TEAMS = 1
+        self.max_teams = 1
 
 class Nurse(TeamMember):
     def __init__(self, first_name, last_name, specialities, biography):
         TeamMember.__init__(self, first_name, last_name, specialities, biography)
         self.type = 'Nurse'
-        self.MAX_TEAMS = 3
+        self.max_teams = 3
 
 class AdminAssistant(TeamMember):
     def __init__(self, first_name, last_name, specialities, biography):
         TeamMember.__init__(self, first_name, last_name, specialities, biography)
         self.type = 'Admin Assistant'
-        self.MAX_TEAMS = 3
+        self.max_teams = 3
 
 class Team():
     def __init__(self):
@@ -45,7 +45,7 @@ class Team():
             self.roster.append(team_member)
 
     def check_team_member_teams_count(self, team_member):
-        return (False, True)[len(team_member.teams) < team_member.MAX_TEAMS]
+        return (False, True)[len(team_member.teams) < team_member.max_teams]
 
     def validity_check(self):
         type_count = self.roster_type_count()
@@ -56,9 +56,9 @@ class Team():
 
     def roster_type_count(self):
         team_count = {
-          'Surgeon' : 0,
-          'Nurse' : 0,
-          'Admin Assistant' : 0
+            'Surgeon' : 0,
+            'Nurse' : 0,
+            'Admin Assistant' : 0
         }
         for team_member in self.roster:
             team_count[team_member.type] += 1

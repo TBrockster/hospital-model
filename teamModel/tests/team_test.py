@@ -5,6 +5,7 @@ from teamModel.models import Team, Surgeon, Nurse, AdminAssistant
 
 class Tests:
   def setup_method(self):
+      self.team = Team()
       self.surgeon = Surgeon(first_name = 'John', 
                         last_name = 'Doe',
                         specialities = ['Renal', 'Paediatrics'],
@@ -26,57 +27,48 @@ class Tests:
                                       biography = 'Lorem Ipsum')
 
   def test_TeamHasRoster(self):
-    team = Team()
-    assert team.roster == []
+    assert self.team.roster == []
 
   def test_TeamCanAddMembers(self):
-    team = Team()
-    team.add_member(self.surgeon)
-    assert team.roster == [self.surgeon]
+    self.team.add_member(self.surgeon)
+    assert self.team.roster == [self.surgeon]
 
   def test_TeamHasValidityCheck(self):
-    team = Team()
-    team.add_member(self.surgeon)
-    assert team.validity_check() == False
+    self.team.add_member(self.surgeon)
+    assert self.team.validity_check() == False
 
   def test_OneSurgeonOneNurse(self):
-    team = Team()
-    team.add_member(self.surgeon)
-    team.add_member(self.nurse)
-    assert team.validity_check() == True
+    self.team.add_member(self.surgeon)
+    self.team.add_member(self.nurse)
+    assert self.team.validity_check() == True
 
   def test_MaxOneSurgeon(self):
-    team = Team()
-    team.add_member(self.nurse)
-    team.add_member(self.surgeon)
-    team.add_member(self.surgeon_two)
-    assert team.validity_check() == False
+    self.team.add_member(self.nurse)
+    self.team.add_member(self.surgeon)
+    self.team.add_member(self.surgeon_two)
+    assert self.team.validity_check() == False
 
   def test_OneAdminAssistant(self):
-    team = Team()
-    team.add_member(self.surgeon)
-    team.add_member(self.nurse)
-    team.add_member(self.admin_assistant)
-    assert team.validity_check() == True
+    self.team.add_member(self.surgeon)
+    self.team.add_member(self.nurse)
+    self.team.add_member(self.admin_assistant)
+    assert self.team.validity_check() == True
 
   def test_MaxOneAdminAssistant(self):
-    team = Team()
-    team.add_member(self.surgeon)
-    team.add_member(self.nurse)
-    team.add_member(self.admin_assistant)
-    team.add_member(self.admin_assistant)
-    assert team.validity_check() == False
+    self.team.add_member(self.surgeon)
+    self.team.add_member(self.nurse)
+    self.team.add_member(self.admin_assistant)
+    self.team.add_member(self.admin_assistant)
+    assert self.team.validity_check() == False
 
   def test_UnlimitedNurses(self):
-    team = Team()
-    team.add_member(self.surgeon)
-    team.add_member(self.nurse)
-    team.add_member(self.nurse)
-    assert team.validity_check() == True
+    self.team.add_member(self.surgeon)
+    self.team.add_member(self.nurse)
+    self.team.add_member(self.nurse)
+    assert self.team.validity_check() == True
 
   def test_AddMemberAddsTeamToMembersTeamList(self):
-    team = Team()
-    team.add_member(self.nurse)
+    self.team.add_member(self.nurse)
     assert len(self.nurse.teams) == 1
 
   def test_NurseInUpToThreeTeams(self):
