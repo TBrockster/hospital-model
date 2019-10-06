@@ -1,17 +1,16 @@
-from teamModel.models import Team
-from teamModel.models import TeamMember
+from teamModel.models import Team, Surgeon, Nurse, AdminAssistant
 
-surgeon = TeamMember(first_name = 'John', 
+surgeon = Surgeon(first_name = 'John', 
                      last_name = 'Doe',
                      specialities = ['Renal', 'Paediatrics'],
                      biography = 'Lorem Ipsum')
 
-nurse = TeamMember(first_name = 'Jane', 
+nurse = Nurse(first_name = 'Jane', 
                    last_name = 'Doe',
                    specialities = ['Renal', 'Paediatrics'],
                    biography = 'Lorem Ipsum')
 
-admin_assistant = TeamMember(first_name = 'Jack', 
+admin_assistant = AdminAssistant(first_name = 'Jack', 
                              last_name = 'Doe',
                              specialities = ['Renal', 'Paediatrics'],
                              biography = 'Lorem Ipsum')
