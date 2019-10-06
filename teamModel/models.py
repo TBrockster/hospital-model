@@ -34,6 +34,7 @@ class Team():
         self.roster = []
 
     def add_member(self, team_member):
+        team_member.teams.append(self)
         self.roster.append(team_member)
 
     def validity_check(self):
