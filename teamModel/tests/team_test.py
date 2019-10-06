@@ -2,115 +2,112 @@ import pytest
 from teamModel.models import Team, Surgeon, Nurse, AdminAssistant
 
 
-surgeon = Surgeon(first_name = 'John', 
-                  last_name = 'Doe',
-                  specialities = ['Renal', 'Paediatrics'],
-                  biography = 'Lorem Ipsum')
 
-nurse = Nurse(first_name = 'Jane', 
-              last_name = 'Doe',
-              specialities = ['Renal', 'Paediatrics'],
-              biography = 'Lorem Ipsum')
+class Tests:
+  def setup_method(self):
+      self.surgeon = Surgeon(first_name = 'John', 
+                        last_name = 'Doe',
+                        specialities = ['Renal', 'Paediatrics'],
+                        biography = 'Lorem Ipsum')
 
-admin_assistant = AdminAssistant(first_name = 'Jack', 
+      self.surgeon_two = Surgeon(first_name = 'Jill', 
                                  last_name = 'Doe',
                                  specialities = ['Renal', 'Paediatrics'],
                                  biography = 'Lorem Ipsum')
 
-def test_TeamHasRoster():
-  team = Team()
-  assert team.roster == []
+      self.nurse = Nurse(first_name = 'Jane', 
+                    last_name = 'Doe',
+                    specialities = ['Renal', 'Paediatrics'],
+                    biography = 'Lorem Ipsum')
 
-def test_TeamCanAddMembers():
-  team = Team()
-  team.add_member(surgeon)
-  assert team.roster == [surgeon]
+      self.admin_assistant = AdminAssistant(first_name = 'Jack', 
+                                      last_name = 'Doe',
+                                      specialities = ['Renal', 'Paediatrics'],
+                                      biography = 'Lorem Ipsum')
 
-def test_TeamHasValidityCheck():
-  team = Team()
-  team.add_member(surgeon)
-  assert team.validity_check() == False
+  def test_TeamHasRoster(self):
+    team = Team()
+    assert team.roster == []
 
-def test_OneSurgeonOneNurse():
-  team = Team()
-  team.add_member(surgeon)
-  team.add_member(nurse)
-  assert team.validity_check() == True
+  def test_TeamCanAddMembers(self):
+    team = Team()
+    team.add_member(self.surgeon)
+    assert team.roster == [self.surgeon]
 
-def test_MaxOneSurgeon():
-  team = Team()
-  team.add_member(nurse)
-  team.add_member(surgeon)
-  team.add_member(surgeon)
-  assert team.validity_check() == False
+  def test_TeamHasValidityCheck(self):
+    team = Team()
+    team.add_member(self.surgeon)
+    assert team.validity_check() == False
 
-def test_OneAdminAssistant():
-  team = Team()
-  team.add_member(surgeon)
-  team.add_member(nurse)
-  team.add_member(admin_assistant)
-  assert team.validity_check() == True
+  def test_OneSurgeonOneNurse(self):
+    team = Team()
+    team.add_member(self.surgeon)
+    team.add_member(self.nurse)
+    assert team.validity_check() == True
 
-def test_MaxOneAdminAssistant():
-  team = Team()
-  team.add_member(surgeon)
-  nurse = Nurse(first_name = 'Jane', 
-                last_name = 'Doe',
-                specialities = ['Renal', 'Paediatrics'],
-                biography = 'Lorem Ipsum')
-  team.add_member(nurse)
-  team.add_member(admin_assistant)
-  team.add_member(admin_assistant)
-  assert team.validity_check() == False
+  def test_MaxOneSurgeon(self):
+    team = Team()
+    team.add_member(self.nurse)
+    team.add_member(self.surgeon)
+    team.add_member(self.surgeon_two)
+    assert team.validity_check() == False
 
-def test_UnlimitedNurses():
-  team = Team()
-  team.add_member(surgeon)
-  nurse = Nurse(first_name = 'Jane', 
-                last_name = 'Doe',
-                specialities = ['Renal', 'Paediatrics'],
-                biography = 'Lorem Ipsum')
-  team.add_member(nurse)
-  team.add_member(nurse)
-  assert team.validity_check() == True
+  def test_OneAdminAssistant(self):
+    team = Team()
+    team.add_member(self.surgeon)
+    team.add_member(self.nurse)
+    team.add_member(self.admin_assistant)
+    assert team.validity_check() == True
 
-def test_AddMemberAddsTeamToMembersTeamList():
-  team = Team()
-  nurse = Nurse(first_name = 'Jane', 
-                last_name = 'Doe',
-                specialities = ['Renal', 'Paediatrics'],
-                biography = 'Lorem Ipsum')
-  team.add_member(nurse)
-  assert len(nurse.teams) == 1
+  def test_MaxOneAdminAssistant(self):
+    team = Team()
+    team.add_member(self.surgeon)
+    team.add_member(self.nurse)
+    team.add_member(self.admin_assistant)
+    team.add_member(self.admin_assistant)
+    assert team.validity_check() == False
 
-def test_NurseInUpToThreeTeams():
-  team_one = Team()
-  team_two = Team()
-  team_three = Team()
-  team_four = Team()
-  nurse = Nurse(first_name = 'Jane', 
-                last_name = 'Doe',
-                specialities = ['Renal', 'Paediatrics'],
-                biography = 'Lorem Ipsum')
-  team_one.add_member(nurse)
-  team_two.add_member(nurse)
-  team_three.add_member(nurse)
-  with pytest.raises(Exception) as e:
-    assert team_four.add_member(nurse)
-  assert str(e.value) == 'Failed to add Team Member, already in maximum number of Teams'
+  def test_UnlimitedNurses(self):
+    team = Team()
+    team.add_member(self.surgeon)
+    team.add_member(self.nurse)
+    team.add_member(self.nurse)
+    assert team.validity_check() == True
 
-  def test_NurseInUpToThreeTeams():
+  def test_AddMemberAddsTeamToMembersTeamList(self):
+    team = Team()
+    team.add_member(self.nurse)
+    assert len(self.nurse.teams) == 1
+
+  def test_NurseInUpToThreeTeams(self):
     team_one = Team()
     team_two = Team()
     team_three = Team()
     team_four = Team()
-    admin_assistant = AdminAssistant(first_name = 'Jane', 
-                                    last_name = 'Doe',
-                                    specialities = ['Renal', 'Paediatrics'],
-                                    biography = 'Lorem Ipsum')
-    team_one.add_member(admin_assistant)
-    team_two.add_member(admin_assistant)
-    team_three.add_member(admin_assistant)
+    team_one.add_member(self.nurse)
+    team_two.add_member(self.nurse)
+    team_three.add_member(self.nurse)
     with pytest.raises(Exception) as e:
-      assert team_four.add_member(admin_assistant)
+      assert team_four.add_member(self.nurse)
     assert str(e.value) == 'Failed to add Team Member, already in maximum number of Teams'
+
+  def test_AdminAssistantInUpToThreeTeams(self):
+    team_one = Team()
+    team_two = Team()
+    team_three = Team()
+    team_four = Team()
+    team_one.add_member(self.admin_assistant)
+    team_two.add_member(self.admin_assistant)
+    team_three.add_member(self.admin_assistant)
+    with pytest.raises(Exception) as e:
+      assert team_four.add_member(self.admin_assistant)
+    assert str(e.value) == 'Failed to add Team Member, already in maximum number of Teams'
+
+  def test_SurgeonInUpToOneTeam(self):
+    team_one = Team()
+    team_two = Team()
+    team_one.add_member(self.surgeon)
+    with pytest.raises(Exception) as e:
+      assert team_two.add_member(self.surgeon)
+    assert str(e.value) == 'Failed to add Team Member, already in maximum number of Teams'
+

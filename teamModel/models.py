@@ -45,8 +45,11 @@ class Team():
         if team_member.type == 'Nurse' or team_member.type == 'Admin Assistant':
             result = (False, True)[len(team_member.teams) <= 2]
             return result
+        elif team_member.type == 'Surgeon':
+            result = (False, True)[len(team_member.teams) <= 0]
+            return result
         else:
-            return True
+            return False
 
     def validity_check(self):
         type_count = self.roster_type_count()
