@@ -60,3 +60,10 @@ def test_MaxOneAdminAssistant():
   team.add_member(admin_assistant)
   team.add_member(admin_assistant)
   assert team.validity_check() == False
+
+def test_UnlimitedNurses():
+  team = Team()
+  team.add_member(surgeon)
+  team.add_member(nurse)
+  team.add_member(nurse)
+  assert team.validity_check() == True

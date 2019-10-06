@@ -23,7 +23,7 @@ class Team():
 
     def validity_check(self):
         type_count = self.roster_type_count()
-        if type_count['Surgeon'] == 1 and type_count['Nurse'] == 1 and type_count['Admin Assistant'] <= 1:
+        if type_count['Surgeon'] == 1 and type_count['Nurse'] >= 1 and type_count['Admin Assistant'] <= 1:
             return True
         else:
             return False
