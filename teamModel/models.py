@@ -18,6 +18,11 @@ class Surgeon(TeamMember):
       TeamMember.__init__(self, first_name, last_name, specialities, biography)
       self.type = 'Surgeon'
 
+class Nurse(TeamMember):
+    def __init__(self, first_name, last_name, specialities, biography):
+          TeamMember.__init__(self, first_name, last_name, specialities, biography)
+          self.type = 'Nurse'
+
 class Team():
     def __init__(self):
         self.roster = []
