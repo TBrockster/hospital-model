@@ -13,6 +13,12 @@ jane = TeamMember(first_name = 'Jane',
                   specialities = ['Renal', 'Paediatrics'],
                   biography = 'Lorem Ipsum')
 
+jack = TeamMember(first_name = 'Jack', 
+                  last_name = 'Doe',
+                  type = 'Admin Assistant',
+                  specialities = ['Renal', 'Paediatrics'],
+                  biography = 'Lorem Ipsum')
+
 def test_TeamHasRoster():
   team = Team()
   assert team.roster == []
@@ -38,3 +44,10 @@ def test_MaxOneSurgeon():
   team.add_member(john)
   team.add_member(john)
   assert team.validity_check() == False
+
+def test_OneAdminAssistant():
+  team = Team()
+  team.add_member(john)
+  team.add_member(jane)
+  team.add_member(jack)
+  assert team.validity_check() == True
