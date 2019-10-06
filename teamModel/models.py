@@ -13,3 +13,7 @@ class TeamMember():
 
     def toggle_on_leave(self):
         self.on_leave = (True, False)[self.on_leave]
+
+class Team():
+    def __init__(self):
+      self.roster = []
