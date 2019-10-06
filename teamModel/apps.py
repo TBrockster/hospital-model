@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class TeammodelConfig(AppConfig):
+class TeamModelConfig(AppConfig):
     name = 'teamModel'
