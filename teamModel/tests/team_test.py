@@ -41,6 +41,7 @@ def test_OneSurgeonOneNurse():
 
 def test_MaxOneSurgeon():
   team = Team()
+  team.add_member(nurse)
   team.add_member(surgeon)
   team.add_member(surgeon)
   assert team.validity_check() == False
