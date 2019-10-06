@@ -7,3 +7,6 @@ class TeamMember():
     self.firstName = firstName
     self.lastName = lastName
     self.onLeave = False
+
+  def toggleOnLeave(self):
+    self.onLeave = True
