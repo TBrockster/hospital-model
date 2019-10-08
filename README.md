@@ -26,7 +26,7 @@
      - biographt: A TextField to store a team members biography.
    - Allows for List and Create.
 
- - http://127.0.0.1:8000/teammembers{1}/
+ - http://127.0.0.1:8000/teammembers/{1}
    - A specific view for an individual team member depending on the ID in the URL.
    - Lists the same attributes as /teammembers
    - Allows for Retrieve, Update and Destroy.
