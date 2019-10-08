@@ -11,7 +11,7 @@
 
  - http://127.0.0.1:8000/teams/{id}
    - A specific view for an individual team depending on the ID in the URL.
-   - Lists the same attributes as /teams
+   - Lists the same attributes as /teams.
    - Allows for Retrieve, Update and Destroy.
 
  - http://127.0.0.1:8000/teammembers/
@@ -28,7 +28,7 @@
 
  - http://127.0.0.1:8000/teammembers/{id}
    - A specific view for an individual team member depending on the ID in the URL.
-   - Lists the same attributes as /teammembers
+   - Lists the same attributes as /teammembers.
    - Allows for Retrieve, Update and Destroy.
 
 ## Approach
