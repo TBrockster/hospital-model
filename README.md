@@ -1,5 +1,36 @@
 # hospital-model
 
+## API URLs
+
+ - http://127.0.0.1:8000/teams/
+   - Lists all teams, including their attributes:
+     - ID: An automatically incrementing IntegerField, used as the primary key field.
+     - teamName: A unique name for the team, following the convention of colour + animal (Blue Tiger).
+     - teamMembers: A list of all team members belonging to this team, including all their attributes, explained below.
+   - Allows List and Create.
+
+ - http://127.0.0.1:8000/teams/{id}
+   - A specific view for an individual team depending on the ID in the URL.
+   - Lists the same attributes as /teams
+   - Allows for Retrieve, Update and Destroy.
+
+ - http://127.0.0.1:8000/teammembers/
+   - Lists all teamMembers, and their attributes:
+     - ID: An automatically incrementing IntegerField, used as the primary key field.
+     - profilePicture: A URLField to a profile picture.
+     - firstName: A CharField to store a team members first name.
+     - lastName: A CharField to store a team members last name.
+     - type: A CharField to store a team members 'type' (Surgeon, Nurse or Admin Assistant).
+     - onLeave: A BooleanField to store if a team member is on leave.
+     - specialities: A CharField to store any specialites of a team member (Renal, Orthopaedics, etc).
+     - biographt: A TextField to store a team members biography.
+   - Allows for List and Create.
+
+ - http://127.0.0.1:8000/teammembers{1}/
+   - A specific view for an individual team member depending on the ID in the URL.
+   - Lists the same attributes as /teammembers
+   - Allows for Retrieve, Update and Destroy.
+
 ## Approach
 
 I spent the first few minutes planning out the model for my classes and my database. I decided on having a TeamMember class and a Teams class, since logic needs to be tested for individuals and teams as a whole. I then decided on a simple database layout with two tables, one for TeamMembers and one for Teams, demonstrated below.

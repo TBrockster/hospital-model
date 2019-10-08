@@ -16,7 +16,7 @@ class TeamMember(models.Model):
         return full_name
 
 class Team(models.Model):
-    teamName = models.CharField(max_length=255)
+    teamName = models.CharField(max_length=255, unique=True)
     teamMembers = models.ManyToManyField(TeamMember)
 
     def __str__(self):
