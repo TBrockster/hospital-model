@@ -12,7 +12,7 @@ class TeamMember(models.Model):
     biography = models.TextField()
 
     def __str__(self):
-        return self.firstName
+        return '{self.firstName} {self.lastName}'
 
 class Team(models.Model):
     teamName = models.CharField(max_length=255)
