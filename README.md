@@ -38,8 +38,8 @@ I spent the first few minutes planning out the model for my classes and my datab
 
 | id | profilePicture | firstName | lastName | type | onLeave | specialities | biography |
 |--|--|--|--|--|--|--|--|
-| 1 | www.profilepicture.com/John | John | Doe | Surgeon | false | [Neuro, Cardiac] | Loves Cats |
-| 2 | www.profilepicture.com/Jane | Jane | Doe | Nurse | true | [Paediatrics] | Hates Cats |
+| 1 | www.profilepicture.com/John | John | Doe | Surgeon | false | Neuro, Cardiac | Loves Cats |
+| 2 | www.profilepicture.com/Jane | Jane | Doe | Nurse | true | Paediatrics | Hates Cats |
 
 | TeamID | MemberID |
 |--|--|
@@ -52,6 +52,4 @@ Since this is the first project I have worked on using Python, I was unfamiliar 
 
 ## Still To Do
 
- - Rework tests with doubles
- - Create database, migrations and tables.
- - Create API.
+ - Link API and logic.
