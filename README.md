@@ -53,3 +53,4 @@ Since this is the first project I have worked on using Python, I was unfamiliar 
 ## Still To Do
 
  - Link API and logic.
+ - Setup permissions.
