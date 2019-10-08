@@ -23,7 +23,7 @@
      - type: A CharField to store a team members 'type' (Surgeon, Nurse or Admin Assistant).
      - onLeave: A BooleanField to store if a team member is on leave.
      - specialities: A CharField to store any specialites of a team member (Renal, Orthopaedics, etc).
-     - biographt: A TextField to store a team members biography.
+     - biography: A TextField to store a team members biography.
    - Allows for List and Create.
 
  - http://127.0.0.1:8000/teammembers/{1}
