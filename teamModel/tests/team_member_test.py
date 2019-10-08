@@ -1,4 +1,4 @@
-from teamModel.models import TeamMember
+from teamModel.logic import TeamMember
 
 genericTeamMember = TeamMember(first_name = 'John', 
                                last_name = 'Doe',

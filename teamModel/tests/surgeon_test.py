@@ -1,4 +1,4 @@
-from teamModel.models import Surgeon
+from teamModel.logic import Surgeon
 
 surgeon = Surgeon(first_name = 'Jane',
                   last_name = 'Doe',

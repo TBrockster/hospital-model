@@ -1,4 +1,4 @@
-from teamModel.models import Nurse
+from teamModel.logic import Nurse
 
 nurse = Nurse(first_name = 'John',
                   last_name = 'Doe',

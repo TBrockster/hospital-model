@@ -1,5 +1,5 @@
 import pytest
-from teamModel.models import Team, Surgeon, Nurse, AdminAssistant
+from teamModel.logic import Team, Surgeon, Nurse, AdminAssistant
 
 
 
@@ -7,9 +7,9 @@ class Tests:
   def setup_method(self):
       self.team = Team()
       self.surgeon = Surgeon(first_name = 'John', 
-                        last_name = 'Doe',
-                        specialities = ['Renal', 'Paediatrics'],
-                        biography = 'Lorem Ipsum')
+                             last_name = 'Doe',
+                             specialities = ['Renal', 'Paediatrics'],
+                             biography = 'Lorem Ipsum')
 
       self.surgeon_two = Surgeon(first_name = 'Jill', 
                                  last_name = 'Doe',
@@ -17,14 +17,14 @@ class Tests:
                                  biography = 'Lorem Ipsum')
 
       self.nurse = Nurse(first_name = 'Jane', 
-                    last_name = 'Doe',
-                    specialities = ['Renal', 'Paediatrics'],
-                    biography = 'Lorem Ipsum')
+                         last_name = 'Doe',
+                         specialities = ['Renal', 'Paediatrics'],
+                         biography = 'Lorem Ipsum')
 
       self.admin_assistant = AdminAssistant(first_name = 'Jack', 
-                                      last_name = 'Doe',
-                                      specialities = ['Renal', 'Paediatrics'],
-                                      biography = 'Lorem Ipsum')
+                                            last_name = 'Doe',
+                                            specialities = ['Renal', 'Paediatrics'],
+                                            biography = 'Lorem Ipsum')
 
   def test_TeamHasRoster(self):
     assert self.team.roster == []
