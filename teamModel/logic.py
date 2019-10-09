@@ -33,7 +33,8 @@ class AdminAssistant(TeamMember):
         self.max_teams = 3
 
 class Team():
-    def __init__(self):
+    def __init__(self, teamName):
+        self.teamName = teamName
         self.roster = []
 
     def add_member(self, team_member):

@@ -5,7 +5,7 @@ from teamModel.logic import Team, Surgeon, Nurse, AdminAssistant
 
 class Tests:
   def setup_method(self):
-      self.team = Team()
+      self.team = Team('Test Team')
       self.surgeon = Surgeon(first_name = 'John', 
                              last_name = 'Doe',
                              specialities = ['Renal', 'Paediatrics'],
@@ -28,6 +28,9 @@ class Tests:
 
   def test_TeamHasRoster(self):
     assert self.team.roster == []
+
+  def test_TeamHasTeamName(self):
+    assert self.team.teamName == 'Test Team'
 
   def test_TeamCanAddMembers(self):
     self.team.add_member(self.surgeon)
@@ -72,10 +75,10 @@ class Tests:
     assert len(self.nurse.teams) == 1
 
   def test_NurseInUpToThreeTeams(self):
-    team_one = Team()
-    team_two = Team()
-    team_three = Team()
-    team_four = Team()
+    team_one = Team('Team One')
+    team_two = Team('Team Two')
+    team_three = Team('Team Three')
+    team_four = Team('Team Four')
     team_one.add_member(self.nurse)
     team_two.add_member(self.nurse)
     team_three.add_member(self.nurse)
@@ -84,10 +87,10 @@ class Tests:
     assert str(e.value) == 'Failed to add Team Member, already in maximum number of Teams'
 
   def test_AdminAssistantInUpToThreeTeams(self):
-    team_one = Team()
-    team_two = Team()
-    team_three = Team()
-    team_four = Team()
+    team_one = Team('Team One')
+    team_two = Team('Team Two')
+    team_three = Team('Team Three')
+    team_four = Team('Team Four')
     team_one.add_member(self.admin_assistant)
     team_two.add_member(self.admin_assistant)
     team_three.add_member(self.admin_assistant)
@@ -96,8 +99,8 @@ class Tests:
     assert str(e.value) == 'Failed to add Team Member, already in maximum number of Teams'
 
   def test_SurgeonInUpToOneTeam(self):
-    team_one = Team()
-    team_two = Team()
+    team_one = Team('Team One')
+    team_two = Team('Team Two')
     team_one.add_member(self.surgeon)
     with pytest.raises(Exception) as e:
       assert team_two.add_member(self.surgeon)

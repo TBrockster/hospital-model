@@ -7,7 +7,7 @@
      - ID: An automatically incrementing IntegerField, used as the primary key field.
      - teamName: A unique name for the team, following the convention of colour + animal (Blue Tiger).
      - teamMembers: A list of all team members belonging to this team, including all their attributes, explained below.
-   - Allows List and Create.
+   - Allows Get.
 
  - http://127.0.0.1:8000/teams/{id}
    - A specific view for an individual team depending on the ID in the URL.
