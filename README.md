@@ -48,7 +48,9 @@ I spent the first few minutes planning out the model for my classes and my datab
 | 2 | 2 |
 | 2 | 3 |
 
-Since this is the first project I have worked on using Python, I was unfamiliar with the options for frameworks, and so I spent a few minutes researching them, and decided on Django for its Django REST Framework module. I followed some basic setup guide steps, and begun the work on the TeamMember and Team models. I decided to use Pytest for my unit testing, as it is the only Python testing library that I am familiar with.
+Since this is the first project I have worked on using Python, I was unfamiliar with the options for frameworks, and so I spent a few minutes researching them, and decided on Django for its Django REST Framework module. I followed some basic setup guide steps, and begun the work on the TeamMember and Team logic. I decided to use Pytest for my unit testing, as it is the only Python testing library that I am familiar with.
+
+I then setup the models and databases, and created the basic outlines for a CRUD API. I struggled to attach logic to this, and I was unsure whether it belonged in the Model, or the View, or even in its own layer. While I did not get this to work, I have left my thought process in a block comment on lines 27-57 in teamModel/views.py.
 
 ## Still To Do
 
